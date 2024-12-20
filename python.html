@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PYTHON QUIZ</title>
+    <style>
+        *{
+            background-color: rgb(5, 4, 4);
+            color: rgb(240, 148, 148);
+        }
+        input{
+            color: aliceblue;
+            background-color: rgb(63, 46, 78);
+            border-radius: 60px ;
+        }
+        input:hover{
+            background-color: aquamarine;
+        }
+        button{
+            background-color: rgb(29, 194, 103);
+            color: rgb(17, 10, 1);
+            border-radius: 60px ;
+        }
+        button:hover{
+            background-color: aquamarine;
+        }
+    </style>
+</head>
+<body>
+    <center>
+    <div>
+        <h1>WELCOME THERE!</h1>
+        <h3>PLEASE ENTER YOUR NAME </h3>
+        <input id="inpt">
+        <br>
+        <br>
+        <button onclick="start()" type="submit">SUBMIT</button>
+        <h2 id="con"></h2>
+    </div>
+    <br>
+    <hr>
+    <br>
+    <div>
+        <h2>BEFORE STARTED READ THIS</h2>
+        <p>
+            rule 1: you must have choose single option for a question only once <br> rule 2: there is negative marks for the wrong choice<br>
+        </p>
+        <h2>NOW GO AND ROCK!</h2>
+    </div>
+    
+    <br>
+    <hr>
+    <br>
+    <div>
+        <!-- Existing Java questions... -->
+
+        <h2>1. What does the 'print' function do in Python?</h2>
+        <button onclick="kanaku(event)">Prints text to the console</button> <br><br>
+        <button onclick="kanaku(event)">Creates a variable</button><br><br>
+        <button onclick="kanaku(event)">Defines a function</button> <br><br>
+        <button onclick="kanaku(event)">Executes a loop</button>
+        <br>
+        <br>
+        <hr>
+        <h2>2. Which of the following is a valid Python data type?</h2>
+        <button onclick="kanaku(event)">integer</button> <br><br>
+        <button onclick="kanaku(event)">number</button><br><br>
+        <button onclick="kanaku(event)">decimal</button> <br><br>
+        <button onclick="kanaku(event)">string</button>
+        <br>
+        <br>
+        <hr>
+        <h2>3. What is the purpose of the 'def' keyword in Python?</h2>
+        <button onclick="kanaku(event)">To create a dictionary</button> <br><br>
+        <button onclick="kanaku(event)">To define a function</button><br><br>
+        <button onclick="kanaku(event)">To delete a variable</button> <br><br>
+        <button onclick="kanaku(event)">To define a loop</button>
+        <br>
+        <br>
+        <hr>
+        <h2>4. Which of the following is used to start a loop in Python?</h2>
+        <button onclick="kanaku(event)">if</button> <br><br>
+        <button onclick="kanaku(event)">while</button><br><br>
+        <button onclick="kanaku(event)">def</button> <br><br>
+        <button onclick="kanaku(event)">else</button>
+        <br>
+        <br>
+        <hr>
+        <h2>5. What does the 'append' method do in Python?</h2>
+        <button onclick="kanaku(event)">Adds an element to a list</button> <br><br>
+        <button onclick="kanaku(event)">Removes an element from a list</button><br><br>
+        <button onclick="kanaku(event)">Sorts a list</button> <br><br>
+        <button onclick="kanaku(event)">Reverses a list</button>
+        <br>
+        <br>
+        <hr>
+        <h2>6. How do you create a variable in Python?</h2>
+        <button onclick="kanaku(event)">var x = 5</button> <br><br>
+        <button onclick="kanaku(event)">x = 5</button><br><br>
+        <button onclick="kanaku(event)">int x = 5</button> <br><br>
+        <button onclick="kanaku(event)">let x = 5</button>
+        <br>
+        <br>
+        <hr>
+        <h2>7. Which of the following is a Python built-in function?</h2>
+        <button onclick="kanaku(event)">range</button> <br><br>
+        <button onclick="kanaku(event)">parse</button><br><br>
+        <button onclick="kanaku(event)">floatify</button> <br><br>
+        <button onclick="kanaku(event)">select</button>
+        <br>
+        <br>
+        <hr>
+        <h2>8. How do you create a comment in Python?</h2>
+        <button onclick="kanaku(event)"># This is a comment</button> <br><br>
+        <button onclick="kanaku(event)">// This is a comment</button><br><br>
+        <button onclick="kanaku(event)">/* This is a comment */</button> <br><br>
+        <button onclick="kanaku(event)"><!-- This is a comment --></button>
+        <br>
+        <br>
+        <hr>
+        <h2>9. What is the output of the following code: print(2 + 3 * 4)?</h2>
+        <button onclick="kanaku(event)">20</button> <br><br>
+        <button onclick="kanaku(event)">14</button><br><br>
+        <button onclick="kanaku(event)">12</button> <br><br>
+        <button onclick="kanaku(event)">10</button>
+        <br>
+        <br>
+        <hr>
+        <h2>10. How do you convert a string to an integer in Python?</h2>
+        <button onclick="kanaku(event)">int()</button> <br><br>
+        <button onclick="kanaku(event)">str()</button><br><br>
+        <button onclick="kanaku(event)">float()</button> <br><br>
+        <button onclick="kanaku(event)">bool()</button>
+        <br>
+        <br>
+    </div>
+    <br>
+    <hr>
+    <br>
+    <div>
+        <h1 id="score">Score:</h1>
+    </div>
+</center>
+    <script>
+        var ip=document.getElementById("inpt");
+        var content=document.getElementById("con");
+        var score=document.getElementById("score");
+        
+        function start()
+        {
+            content.textContent="Response noted "+ip.value;
+        }
+        let a=0;
+        function kanaku(event)
+        {
+            if(event.target.textContent=="Prints text to the console" )
+           {
+            a++;
+           }
+           if(event.target.textContent=="string" )
+           {
+            a++;
+           }
+           if(event.target.textContent=="To define a function" )
+           {
+            a++;
+           }
+           if(event.target.textContent=="while")
+           {
+            a++;
+           }
+           if(event.target.textContent=="Adds an element to a list")
+           {
+            a++;
+           }
+           if(event.target.textContent=="x = 5")
+           {
+            a++;
+           }
+           if(event.target.textContent=="range")
+           {
+            a++;
+           }
+           if(event.target.textContent=="# This is a comment")
+           {
+            a++;
+           }
+           if(event.target.textContent=="14")
+           {
+            a++;
+           }
+           if(event.target.textContent=="int()")
+           {
+            a++;
+           }
+           score.textContent="Score:"+a;
+        }
+    </script>
+</body>
+                                                                </html
