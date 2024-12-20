@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Quiz</title>
+    <style>
+        * {
+            background-color: rgb(5, 4, 4);
+            color: rgb(240, 148, 148);
+        }
+        input {
+            color: aliceblue;
+            background-color: rgb(63, 46, 78);
+            border-radius: 60px;
+        }
+        input:hover {
+            background-color: aquamarine;
+        }
+        button {
+            background-color: rgb(29, 194, 103);
+            color: rgb(17, 10, 1);
+            border-radius: 60px;
+        }
+        button:hover {
+            background-color: aquamarine;
+        }
+    </style>
+</head>
+<body>
+    <center>
+    <div>
+        <h1>WELCOME TO THE CSS QUIZ!</h1>
+        <h3>PLEASE ENTER YOUR NAME</h3>
+        <input id="inpt">
+        <br><br>
+        <button onclick="start()" type="submit">SUBMIT</button>
+        <h2 id="con"></h2>
+    </div>
+    <br><hr><br>
+    <div>
+        <h2>BEFORE STARTING, READ THIS:</h2>
+        <p>
+            Rule 1: You must choose a single option for a question only once.<br>
+            Rule 2: There are negative marks for wrong choices.
+        </p>
+        <h2>NOW GO AND ROCK!</h2>
+    </div>
+    <br><hr><br>
+    <div>
+        <h2>1. What does CSS stand for?</h2>
+        <button onclick="checkAnswer(event)">Cascading Style Sheets</button><br><br>
+        <button onclick="checkAnswer(event)">Colorful Style Sheets</button><br><br>
+        <button onclick="checkAnswer(event)">Creative Style Sheets</button><br><br>
+        <button onclick="checkAnswer(event)">Computer Style Sheets</button>
+        <br><br><hr>
+        <h2>2. Which HTML attribute is used to define inline styles?</h2>
+        <button onclick="checkAnswer(event)">class</button><br><br>
+        <button onclick="checkAnswer(event)">style</button><br><br>
+        <button onclick="checkAnswer(event)">font</button><br><br>
+        <button onclick="checkAnswer(event)">styles</button>
+        <br><br><hr>
+        <h2>3. Which property is used to change the background color?</h2>
+        <button onclick="checkAnswer(event)">bgcolor</button><br><br>
+        <button onclick="checkAnswer(event)">background-color</button><br><br>
+        <button onclick="checkAnswer(event)">color</button><br><br>
+        <button onclick="checkAnswer(event)">bg-color</button>
+        <br><br><hr>
+        <h2>4. Which CSS property controls the text size?</h2>
+        <button onclick="checkAnswer(event)">font-style</button><br><br>
+        <button onclick="checkAnswer(event)">text-style</button><br><br>
+        <button onclick="checkAnswer(event)">font-size</button><br><br>
+        <button onclick="checkAnswer(event)">text-size</button>
+        <br><br><hr>
+        <h2>5. What is the correct CSS syntax for making all the <p> elements bold?</h2>
+        <button onclick="checkAnswer(event)">&lt;p style='text-size:bold;'&gt;</button><br><br>
+        <button onclick="checkAnswer(event)">&lt;p style='font-weight:bold;'&gt;</button><br><br>
+        <button onclick="checkAnswer(event)">p {font-weight:bold;}</button><br><br>
+        <button onclick="checkAnswer(event)">&lt;p style='font:bold;'&gt;</button>
+        <br><br><hr>
+        <h2>6. How do you display hyperlinks without an underline?</h2>
+        <button onclick="checkAnswer(event)">a {decoration:no-underline;}</button><br><br>
+        <button onclick="checkAnswer(event)">a {underline:none;}</button><br><br>
+        <button onclick="checkAnswer(event)">a {text-decoration:none;}</button><br><br>
+        <button onclick="checkAnswer(event)">a {text-decoration:no-underline;}</button>
+        <br><br><hr>
+        <h2>7. How do you make each word in a text start with a capital letter?</h2>
+        <button onclick="checkAnswer(event)">text-transform:capitalize</button><br><br>
+        <button onclick="checkAnswer(event)">text-transform:uppercase</button><br><br>
+        <button onclick="checkAnswer(event)">You can't do that with CSS</button><br><br>
+        <button onclick="checkAnswer(event)">text-transform:lowercase</button>
+        <br><br><hr>
+        <h2>8. Which property is used to change the font of an element?</h2>
+        <button onclick="checkAnswer(event)">font-weight</button><br><br>
+        <button onclick="checkAnswer(event)">font-family</button><br><br>
+        <button onclick="checkAnswer(event)">font-style</button><br><br>
+        <button onclick="checkAnswer(event)">font-size</button>
+        <br><br><hr>
+        <h2>9. How do you make the text bold?</h2>
+        <button onclick="checkAnswer(event)">font-weight:bold;</button><br><br>
+        <button onclick="checkAnswer(event)">font:bold;</button><br><br>
+        <button onclick="checkAnswer(event)">style:bold;</button><br><br>
+        <button onclick="checkAnswer(event)">font-weight:900;</button>
+        <br><br><hr>
+        <h2>10. How do you display a border like this: The top border = 10 pixels, the bottom border = 5 pixels, the left border = 20 pixels, and the right border = 1pixel?</h2>
+        <button onclick="checkAnswer(event)">border-width:10px 1px 5px 20px;</button><br><br>
+        <button onclick="checkAnswer(event)">border-width:10px 5px 20px 1px;</button><br><br>
+        <button onclick="checkAnswer(event)">border-width:10px 20px 5px 1px;</button><br><br>
+        <button onclick="checkAnswer(event)">border-width:10px 5px 1px 20px;</button>
+        <br><br><hr>
+    </div>
+    <br><hr><br>
+    <div>
+        <h1 id="score">Score:</h1>
+    </div>
+    </center>
+    <script>
+        var ip = document.getElementById("inpt");
+        var content = document.getElementById("con");
+        var score = document.getElementById("score");
+
+        function start() {
+            content.textContent = "Response noted " + ip.value;
+        }
+
+        let a = 0;
+        function checkAnswer(event) {
+            const correctAnswers = [
+                "Cascading Style Sheets",
+                "style",
+                "background-color",
+                "font-size",
+                "p {font-weight:bold;}",
+                "a {text-decoration:none;}",
+                "text-transform:capitalize",
+                "font-family",
+                "font-weight:bold;",
+                "border-width:10px 1px 5px 20px;"
+            ];
+
+            if (correctAnswers.includes(event.target.textContent)) {
+                a++;
+            }
+
+            score.textContent = "Score: " + a;
+        }
+    </script>
+</body>
+</html
