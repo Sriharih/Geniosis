@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Quiz</title>
+    <style>
+        * {
+            background-color: rgb(5, 4, 4);
+            color: rgb(240, 148, 148);
+        }
+        input {
+            color: aliceblue;
+            background-color: rgb(63, 46, 78);
+            border-radius: 60px;
+        }
+        input:hover {
+            background-color: aquamarine;
+        }
+        button {
+            background-color: rgb(29, 194, 103);
+            color: rgb(17, 10, 1);
+            border-radius: 60px;
+        }
+        button:hover {
+            background-color: aquamarine;
+        }
+    </style>
+</head>
+<body>
+    <center>
+    <div>
+        <h1>WELCOME TO THE HTML QUIZ!</h1>
+        <h3>PLEASE ENTER YOUR NAME</h3>
+        <input id="inpt">
+        <br><br>
+        <button onclick="start()" type="submit">SUBMIT</button>
+        <h2 id="con"></h2>
+    </div>
+    <br><hr><br>
+    <div>
+        <h2>BEFORE STARTING, READ THIS:</h2>
+        <p>
+            Rule 1: You must choose a single option for a question only once.<br>
+            Rule 2: There are negative marks for wrong choices.
+        </p>
+        <h2>NOW GO AND ROCK!</h2>
+    </div>
+    <br><hr><br>
+    <div>
+        <h2>1. What does HTML stand for?</h2>
+        <button onclick="checkAnswer(event)">Hyper Text Markup Language</button><br><br>
+        <button onclick="checkAnswer(event)">Home Tool Markup Language</button><br><br>
+        <button onclick="checkAnswer(event)">Hyperlinks and Text Markup Language</button><br><br>
+        <button onclick="checkAnswer(event)">Hyperlinking Text Mark Language</button>
+        <br><br><hr>
+        <h2>2. Who is making the Web standards?</h2>
+        <button onclick="checkAnswer(event)">Microsoft</button><br><br>
+        <button onclick="checkAnswer(event)">Google</button><br><br>
+        <button onclick="checkAnswer(event)">The World Wide Web Consortium</button><br><br>
+        <button onclick="checkAnswer(event)">Mozilla</button>
+        <br><br><hr>
+        <h2>3. Choose the correct HTML element for the largest heading:</h2>
+        <button onclick="checkAnswer(event)">&lt;heading&gt;</button><br><br>
+        <button onclick="checkAnswer(event)">&lt;h6&gt;</button><br><br>
+        <button onclick="checkAnswer(event)">&lt;h1&gt;</button><br><br>
+        <button onclick="checkAnswer(event)">&lt;head&gt;</button>
+        <br><br><hr>
+        <h2>4. What is the correct HTML element for inserting a line break?</h2>
+        <button onclick="checkAnswer(event)">&lt;break&gt;</button><br><br>
+        <button onclick="checkAnswer(event)">&lt;lb&gt;</button><br><br>
+        <button onclick="checkAnswer(event)">&lt;br&gt;</button><br><br>
+        <button onclick="checkAnswer(event)">&lt;line&gt;</button>
+        <br><br><hr>
+        <h2>5. What is the correct HTML for adding a background color?</h2>
+        <button onclick="checkAnswer(event)">&lt;body bg="yellow"&gt;</button><br><br>
+        <button onclick="checkAnswer(event)">&lt;body style="background-color:yellow;"&gt;</button><br><br>
+        <button onclick="checkAnswer(event)">&lt;background&gt;yellow&lt;/background&gt;</button><br><br>
+        <button onclick="checkAnswer(event)">&lt;bgcolor&gt;yellow&lt;/bgcolor&gt;</button>
+        <br><br><hr>
+        <h2>6. Choose the correct HTML element to define important text:</h2>
+        <button onclick="checkAnswer(event)">&lt;strong&gt;</button><br><br>
+        <button onclick="checkAnswer(event)">&lt;important&gt;</button><br><br>
+        <button onclick="checkAnswer(event)">&lt;b&gt;</button><br><br>
+        <button onclick="checkAnswer(event)">&lt;i&gt;</button>
+        <br><br><hr>
+        <h2>7. Which character is used to indicate an end tag?</h2>
+        <button onclick="checkAnswer(event)">*</button><br><br>
+        <button onclick="checkAnswer(event)">/</button><br><br>
+        <button onclick="checkAnswer(event)">^</button><br><br>
+        <button onclick="checkAnswer(event)">&lt;</button>
+        <br><br><hr>
+        <h2>8. How can you make a numbered list?</h2>
+        <button onclick="checkAnswer(event)">&lt;ul&gt;</button><br><br>
+        <button onclick="checkAnswer(event)">&lt;ol&gt;</button><br><br>
+        <button onclick="checkAnswer(event)">&lt;dl&gt;</button><br><br>
+        <button onclick="checkAnswer(event)">&lt;list&gt;</button>
+        <br><br><hr>
+        <h2>9. What is the correct HTML for making a text input field?</h2>
+        <button onclick="checkAnswer(event)">&lt;input type="text"&gt;</button><br><br>
+        <button onclick="checkAnswer(event)">&lt;textfield&gt;</button><br><br>
+        <button onclick="checkAnswer(event)">&lt;textinput type="textfield"&gt;</button><br><br>
+        <button onclick="checkAnswer(event)">&lt;textbox&gt;</button>
+        <br><br><hr>
+        <h2>10. How can you make a checkbox in HTML?</h2>
+        <button onclick="checkAnswer(event)">&lt;checkbox&gt;</button><br><br>
+        <button onclick="checkAnswer(event)">&lt;input type="checkbox"&gt;</button><br><br>
+        <button onclick="checkAnswer(event)">&lt;check&gt;</button><br><br>
+        <button onclick="checkAnswer(event)">&lt;input type="check"&gt;</button>
+        <br><br><hr>
+    </div>
+    <br><hr><br>
+    <div>
+        <h1 id="score">Score:</h1>
+    </div>
+    </center>
+    <script>
+        var ip = document.getElementById("inpt");
+        var content = document.getElementById("con");
+        var score = document.getElementById("score");
+
+        function start() {
+            content.textContent = "Response noted " + ip.value;
+        }
+
+        let a = 0;
+        function checkAnswer(event) {
+            const correctAnswers = [
+                "Hyper Text Markup Language",
+                "The World Wide Web Consortium",
+                "<h1>",
+                "<br>",
+                "<body style=\"background-color:yellow;\">",
+                "<strong>",
+                "/",
+                "<ol>",
+                "<input type=\"text\">",
+                "<input type=\"checkbox\">"
+            ];
+
+            if (correctAnswers.includes(event.target.textContent)) {
+                a++;
+            }
+
+            score.textContent = "Score: " + a;
+        }
+    </script>
+</body>
+              </html
