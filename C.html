@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C Programming Quiz</title>
+    <style>
+        * {
+            background-color: rgb(5, 4, 4);
+            color: rgb(240, 148, 148);
+        }
+        input {
+            color: aliceblue;
+            background-color: rgb(63, 46, 78);
+            border-radius: 60px;
+        }
+        input:hover {
+            background-color: aquamarine;
+        }
+        button {
+            background-color: rgb(29, 194, 103);
+            color: rgb(17, 10, 1);
+            border-radius: 60px;
+        }
+        button:hover {
+            background-color: aquamarine;
+        }
+    </style>
+</head>
+<body>
+    <center>
+    <div>
+        <h1>WELCOME TO THE C PROGRAMMING QUIZ!</h1>
+        <h3>PLEASE ENTER YOUR NAME</h3>
+        <input id="inpt">
+        <br><br>
+        <button onclick="start()" type="submit">SUBMIT</button>
+        <h2 id="con"></h2>
+    </div>
+    <br><hr><br>
+    <div>
+        <h2>BEFORE STARTING, READ THIS:</h2>
+        <p>
+            Rule 1: You must choose a single option for a question only once.<br>
+            Rule 2: There are negative marks for wrong choices.
+        </p>
+        <h2>NOW GO AND ROCK!</h2>
+    </div>
+    <br><hr><br>
+    <div>
+        <h2>1. Which of the following is the correct syntax to print a message in C?</h2>
+        <button onclick="checkAnswer(event)">printf("Hello World");</button><br><br>
+        <button onclick="checkAnswer(event)">print("Hello World");</button><br><br>
+        <button onclick="checkAnswer(event)">cout << "Hello World";</button><br><br>
+        <button onclick="checkAnswer(event)">echo "Hello World";</button>
+        <br><br><hr>
+        <h2>2. Which data type is used to create a variable that should store text?</h2>
+        <button onclick="checkAnswer(event)">text</button><br><br>
+        <button onclick="checkAnswer(event)">char</button><br><br>
+        <button onclick="checkAnswer(event)">string</button><br><br>
+        <button onclick="checkAnswer(event)">myString</button>
+        <br><br><hr>
+        <h2>3. Which operator can be used to get the memory address of a variable?</h2>
+        <button onclick="checkAnswer(event)">#</button><br><br>
+        <button onclick="checkAnswer(event)">$</button><br><br>
+        <button onclick="checkAnswer(event)">&</button><br><br>
+        <button onclick="checkAnswer(event)">@</button>
+        <br><br><hr>
+        <h2>4. Which format specifier is used to print a floating point number in C?</h2>
+        <button onclick="checkAnswer(event)">%d</button><br><br>
+        <button onclick="checkAnswer(event)">%c</button><br><br>
+        <button onclick="checkAnswer(event)">%f</button><br><br>
+        <button onclick="checkAnswer(event)">%s</button>
+        <br><br><hr>
+        <h2>5. Which of the following is the correct syntax for a for loop in C?</h2>
+        <button onclick="checkAnswer(event)">for (i = 0; i < 10; i++)</button><br><br>
+        <button onclick="checkAnswer(event)">for (i < 10; i++)</button><br><br>
+        <button onclick="checkAnswer(event)">for (i = 0; i++)</button><br><br>
+        <button onclick="checkAnswer(event)">for (i = 0; i < 10)</button>
+        <br><br><hr>
+        <h2>6. Which keyword is used to prevent any changes in the variable within a C program?</h2>
+        <button onclick="checkAnswer(event)">immutable</button><br><br>
+        <button onclick="checkAnswer(event)">mutable</button><br><br>
+        <button onclick="checkAnswer(event)">const</button><br><br>
+        <button onclick="checkAnswer(event)">unchangeable</button>
+        <br><br><hr>
+        <h2>7. How do you write an if statement in C?</h2>
+        <button onclick="checkAnswer(event)">if (a > b) {}</button><br><br>
+        <button onclick="checkAnswer(event)">if a > b {}</button><br><br>
+        <button onclick="checkAnswer(event)">if a > b then {}</button><br><br>
+        <button onclick="checkAnswer(event)">if (a > b then {}</button>
+        <br><br><hr>
+        <h2>8. Which function is used to read a single character from the console in C?</h2>
+        <button onclick="checkAnswer(event)">getc()</button><br><br>
+        <button onclick="checkAnswer(event)">getchar()</button><br><br>
+        <button onclick="checkAnswer(event)">read()</button><br><br>
+        <button onclick="checkAnswer(event)">fgetc()</button>
+        <br><br><hr>
+        <h2>9. Which of the following is used to find the size of a data type or variable in C?</h2>
+        <button onclick="checkAnswer(event)">size()</button><br><br>
+        <button onclick="checkAnswer(event)">sizeof()</button><br><br>
+        <button onclick="checkAnswer(event)">length()</button><br><br>
+        <button onclick="checkAnswer(event)">len()</button>
+        <br><br><hr>
+        <h2>10. How do you declare an array in C?</h2>
+        <button onclick="checkAnswer(event)">int arr[10];</button><br><br>
+        <button onclick="checkAnswer(event)">array int arr[10];</button><br><br>
+        <button onclick="checkAnswer(event)">int arr;</button><br><br>
+        <button onclick="checkAnswer(event)">arr[10] int;</button>
+        <br><br><hr>
+    </div>
+    <br><hr><br>
+    <div>
+        <h1 id="score">Score:</h1>
+    </div>
+    </center>
+    <script>
+        var ip = document.getElementById("inpt");
+        var content = document.getElementById("con");
+        var score = document.getElementById("score");
+
+        function start() {
+            content.textContent = "Response noted " + ip.value;
+        }
+
+        let a = 0;
+        function checkAnswer(event) {
+            const correctAnswers = [
+                'printf("Hello World");',
+                "char",
+                "&",
+                "%f",
+                "for (i = 0; i < 10; i++)",
+                "const",
+                "if (a > b) {}",
+                "getchar()",
+                "sizeof()",
+                "int arr[10];"
+            ];
+
+            if (correctAnswers.includes(event.target.textContent)) {
+                a++;
+            }
+
+            score.textContent = "Score: " + a;
+        }
+    </script>
+</body>
+</html>
