@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QUIZ</title>
+    <style>
+        *{
+            background-color: rgb(5, 4, 4);
+            color: rgb(240, 148, 148);
+        }
+        input{
+            color: aliceblue;
+            background-color: rgb(63, 46, 78);
+            border-radius: 60px ;
+        }
+        input:hover{
+            background-color: aquamarine;
+        }
+        button{
+            background-color: rgb(29, 194, 103);
+            color: rgb(17, 10, 1);
+            border-radius: 60px ;
+        }
+        button:hover{
+            background-color: aquamarine;
+        }
+    </style>
+</head>
+<body>
+    <center>
+    <div>
+        <h1>WELCOME THERE!</h1>
+        <h3>PLEASE ENTER YOUR NAME </h3>
+        <input id="inpt">
+        <br>
+        <br>
+        <button onclick="start()" type="submit">SUBMIT</button>
+        <h2 id="con"></h2>
+    </div>
+    <br>
+    <hr>
+    <br>
+    <div>
+        <h2>BEFORE STARTED READ THIS</h2>
+        <p>
+            rule 1: you must have choose single option for a question only once <br> rule 2: there is negative marks for the wrong choice<br>
+        </p>
+        <h2>NOW GO AND ROCK!</h2>
+    </div>
+    
+    <br>
+    <hr>
+    <br>
+    <div>
+        <h2>1.JVM stands for ?</h2>
+        <button onclick="kanaku(event)">java virtual machine</button> <br><br><button onclick="kanaku(event)">java voice message</button><br><br>
+        <button onclick="kanaku(event)">java vocal machine</button> <br><br><button onclick="kanaku(event)">java virtual matter</button>
+        <br>
+        <br>
+        <hr>
+        <h2>2.which of the following java keywords is used to declare a class ?</h2>
+        <button onclick="kanaku(event)">public</button> <br><br><button onclick="kanaku(event)">void</button><br><br>
+        <button onclick="kanaku(event)">class</button> <br><br><button onclick="kanaku(event)">static</button>
+        <br>
+        <br>
+        <hr>
+        <h2>3.what is the purpose of the finally block in java ?</h2>
+        <button onclick="kanaku(event)">to handle exceptions</button> <br><br><button onclick="kanaku(event)">to execute code regardless of whether an exception is thrown</button><br><br>
+        <button onclick="kanaku(event)">to declare variables</button> <br><br><button onclick="kanaku(event)">to define methods</button>
+        <br>
+        <br>
+        <hr>
+        <h2>4.which of the following java data types is used to represent a single character ?</h2>
+        <button onclick="kanaku(event)">int</button> <br><br><button onclick="kanaku(event)">float</button><br><br>
+        <button onclick="kanaku(event)">double</button> <br><br><button onclick="kanaku(event)">char</button>
+        <br>
+        <br>
+        <hr>
+        <h2>5.which of the following java interface is used to represent a collection of unique elements ?</h2>
+        <button onclick="kanaku(event)">queue</button> <br><br><button onclick="kanaku(event)">list</button><br><br>
+        <button onclick="kanaku(event)">map</button> <br><br><button onclick="kanaku(event)">set</button>
+        <br>
+        <br>
+        <hr>
+        <h2>6.what is the purpose of super keyword in java?</h2>
+        <button onclick="kanaku(event)">to access the parent class's methods and variables</button> <br><br><button onclick="kanaku(event)">to override the parent class method</button><br><br>
+        <button onclick="kanaku(event)">to hide the parent class variables</button> <br><br><button onclick="kanaku(event)">to create a new instance of the parent class</button>
+        <br>
+        <br>
+        <hr>
+        <h2>7.which of the following java annotations is used to indicate that a method should be executed before each test method ?</h2>
+        <button onclick="kanaku(event)">@Before</button> <br><br><button onclick="kanaku(event)">@Test</button><br><br>
+        <button onclick="kanaku(event)">@After</button> <br><br><button onclick="kanaku(event)">@Runtine</button>
+        <br>
+        <br>
+        <hr>
+        <h2>8.which of the following java classes is used to represent a dat and time ?</h2>
+        <button onclick="kanaku(event)">date</button> <br><br><button onclick="kanaku(event)">time</button><br><br>
+        <button onclick="kanaku(event)">calender</button> <br><br><button onclick="kanaku(event)">localdatetime</button>
+        <br>
+        <br>
+        <hr>
+        <h2>9.which of the following java collection is synchronized ?</h2>
+        <button onclick="kanaku(event)">arraylist</button> <br><br><button onclick="kanaku(event)">linkedlist</button><br><br>
+        <button onclick="kanaku(event)">vector</button> <br><br><button onclick="kanaku(event)">hashmap</button>
+        <br>
+        <br>
+        <hr>
+        <h2>10.what is the purpose of the "this" keyword in java ?</h2>
+        <button onclick="kanaku(event)">to refer to the current object</button> <br><br><button onclick="kanaku(event)">to refer to the parent class</button><br><br>
+        <button onclick="kanaku(event)">to refer to the static method</button> <br><br><button onclick="kanaku(event)">to refer to the main method</button>
+        <br>
+        <br>
+    </div>
+    <br>
+    <hr>
+    <br>
+    <div>
+        <h1 id="score">Score:</h1>
+    </div>
+</center>
+    <script>
+        var ip=document.getElementById("inpt");
+        var content=document.getElementById("con");
+        var score=document.getElementById("score");
+        //var ans=document.getElementById("true");
+        
+        
+        function start()
+        {
+            content.textContent="Response noted "+ip.value;
+           // console.log(name.textContent);
+        }
+        let a=0;
+        var q1;
+        function kanaku(event)
+        {
+           if(event.target.textContent=="java virtual machine" )
+           {
+            a++;
+            console.log(a)
+           }//
+           if(event.target.textContent=="class" )
+           {
+            a++;
+           }
+           if(event.target.textContent=="to execute code regardless of whether an exception is thrown" )
+           {
+            a++;
+           }
+           if(event.target.textContent=="char")
+           {
+            a++;
+           }
+           if(event.target.textContent=="set")
+           {
+            a++;
+           }
+           if(event.target.textContent=="to access the parent class's methods and variables")
+           {
+            a++;
+           }
+           if(event.target.textContent=="@Before")
+           {
+            a++;
+           }
+           if(event.target.textContent=="localdatetime")
+           {
+            a++;
+           }
+           if(event.target.textContent=="vector")
+           {
+            a++;
+           }
+           if(event.target.textContent=="to refer to the current object")
+           {
+            a++;
+           }
+           
+           score.textContent="Score:"+a;
+        }
+    </script>
+</body>
+</html>
