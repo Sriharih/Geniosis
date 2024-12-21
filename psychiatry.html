@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Psychiatry Quiz</title>
+    <style>
+        * {
+            background-color: #f2f2f2;
+            color: #333;
+        }
+        input {
+            color: #000;
+            background-color: #ddd;
+            border-radius: 5px;
+            padding: 5px;
+            margin: 5px;
+        }
+        input:hover {
+            background-color: #ccc;
+        }
+        button {
+            background-color: #5a5;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #4a4;
+        }
+        h1, h2, h3 {
+            margin: 10px;
+        }
+        .quiz-container {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="quiz-container">
+        <h1>Welcome to the Psychiatry Quiz!</h1>
+        <h3>Please Enter Your Name</h3>
+        <input id="nameInput" placeholder="Your name">
+        <br><br>
+        <button onclick="startQuiz()">Start Quiz</button>
+        <h2 id="welcomeMessage"></h2>
+    </div>
+    <br><hr><br>
+    <div class="quiz-container">
+        <h2>Instructions:</h2>
+        <p>
+            1. Choose the correct answer for each question.<br>
+            2. You will receive 1 point for each correct answer.<br>
+            3. Negative marks are not applicable.
+        </p>
+        <h2>Good Luck!</h2>
+    </div>
+    <br><hr><br>
+    <div class="quiz-container">
+        <h2>1. What is the primary feature of schizophrenia?</h2>
+        <button onclick="checkAnswer(event, 0)">Delusions and hallucinations</button><br><br>
+        <button onclick="checkAnswer(event, 0)">Memory loss</button><br><br>
+        <button onclick="checkAnswer(event, 0)">Mood swings</button><br><br>
+        <button onclick="checkAnswer(event, 0)">Depersonalization</button>
+        <br><br><hr>
+        <h2>2. What is the main treatment for major depressive disorder?</h2>
+        <button onclick="checkAnswer(event, 1)">Antidepressants</button><br><br>
+        <button onclick="checkAnswer(event, 1)">Anxiolytics</button><br><br>
+        <button onclick="checkAnswer(event, 1)">Antipsychotics</button><br><br>
+        <button onclick="checkAnswer(event, 1)">Stimulants</button>
+        <br><br><hr>
+        <h2>3. Which of the following is a common symptom of panic disorder?</h2>
+        <button onclick="checkAnswer(event, 2)">Chest pain and shortness of breath</button><br><br>
+        <button onclick="checkAnswer(event, 2)">Memory loss</button><br><br>
+        <button onclick="checkAnswer(event, 2)">Excessive hunger</button><br><br>
+        <button onclick="checkAnswer(event, 2)">Chronic fatigue</button>
+        <br><br><hr>
+        <h2>4. Which therapy is most commonly used in treating obsessive-compulsive disorder (OCD)?</h2>
+        <button onclick="checkAnswer(event, 3)">Cognitive-behavioral therapy (CBT)</button><br><br>
+        <button onclick="checkAnswer(event, 3)">Electroconvulsive therapy (ECT)</button><br><br>
+        <button onclick="checkAnswer(event, 3)">Interpersonal therapy (IPT)</button><br><br>
+        <button onclick="checkAnswer(event, 3)">Exposure therapy</button>
+        <br><br><hr>
+        <h2>5. Which neurotransmitter is most commonly associated with depression?</h2>
+        <button onclick="checkAnswer(event, 4)">Serotonin</button><br><br>
+        <button onclick="checkAnswer(event, 4)">Dopamine</button><br><br>
+        <button onclick="checkAnswer(event, 4)">Norepinephrine</button><br><br>
+        <button onclick="checkAnswer(event, 4)">GABA</button>
+        <br><br><hr>
+        <h2>6. Which of the following is a symptom of post-traumatic stress disorder (PTSD)?</h2>
+        <button onclick="checkAnswer(event, 5)">Flashbacks</button><br><br>
+        <button onclick="checkAnswer(event, 5)">Tiredness</button><br><br>
+        <button onclick="checkAnswer(event, 5)">Rapid speech</button><br><br>
+        <button onclick="checkAnswer(event, 5)">Difficulty concentrating</button>
+        <br><br><hr>
+        <h2>7. What is the main cause of bipolar disorder?</h2>
+        <button onclick="checkAnswer(event, 6)">Genetic factors</button><br><br>
+        <button onclick="checkAnswer(event, 6)">Environmental stressors</button><br><br>
+        <button onclick="checkAnswer(event, 6)">Chemical imbalance</button><br><br>
+        <button onclick="checkAnswer(event, 6)">Nutritional deficiencies</button>
+        <br><br><hr>
+        <h2>8. What type of medication is commonly prescribed for anxiety disorders?</h2>
+        <button onclick="checkAnswer(event, 7)">Benzodiazepines</button><br><br>
+        <button onclick="checkAnswer(event, 7)">Antipsychotics</button><br><br>
+        <button onclick="checkAnswer(event, 7)">Stimulants</button><br><br>
+        <button onclick="checkAnswer(event, 7)">Antidepressants</button>
+        <br><br><hr>
+        <h2>9. What is the main characteristic of borderline personality disorder?</h2>
+        <button onclick="checkAnswer(event, 8)">Intense fear of abandonment</button><br><br>
+        <button onclick="checkAnswer(event, 8)">Excessive self-confidence</button><br><br>
+        <button onclick="checkAnswer(event, 8)">Lack of empathy</button><br><br>
+        <button onclick="checkAnswer(event, 8)">Extreme perfectionism</button>
+        <br><br><hr>
+        <h2>10. Which of the following is a common symptom of schizophrenia?</h2>
+        <button onclick="checkAnswer(event, 9)">Hallucinations</button><br><br>
+        <button onclick="checkAnswer(event, 9)">Chronic pain</button><br><br>
+        <button onclick="checkAnswer(event, 9)">Excessive sleep</button><br><br>
+        <button onclick="checkAnswer(event, 9)">Inability to speak</button>
+        <br><br><hr>
+    </div>
+    <br><hr><br>
+    <div class="quiz-container">
+        <h1 id="score">Score: 0</h1>
+    </div>
+    <script>
+        var nameInput = document.getElementById("nameInput");
+        var welcomeMessage = document.getElementById("welcomeMessage");
+        var scoreDisplay = document.getElementById("score");
+        var score = 0;
+
+        function startQuiz() {
+            welcomeMessage.textContent = "Good luck, " + nameInput.value + "!";
+        }
+
+        function checkAnswer(event, questionIndex) {
+            const correctAnswers = [
+                "Delusions and hallucinations",
+                "Antidepressants",
+                "Chest pain and shortness of breath",
+                "Cognitive-behavioral therapy (CBT)",
+                "Serotonin",
+                "Flashbacks",
+                "Genetic factors",
+                "Benzodiazepines",
+                "Intense fear of abandonment",
+                "Hallucinations"
+            ];
+
+            if (event.target.textContent === correctAnswers[questionIndex]) {
+                score++;
+            }
+
+            scoreDisplay.textContent = "Score: " + score;
+        }
+    </script>
+</body>
+</html>
