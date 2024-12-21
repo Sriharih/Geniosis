@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orthopaedics Quiz</title>
+    <style>
+        * {
+            background-color: #2e2e2e;
+            color: #e0e0e0;
+        }
+        input {
+            color: #000;
+            background-color: #ddd;
+            border-radius: 5px;
+            padding: 5px;
+            margin: 5px;
+        }
+        input:hover {
+            background-color: #ccc;
+        }
+        button {
+            background-color: #5a5;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #4a4;
+        }
+        h1, h2, h3 {
+            margin: 10px;
+        }
+        .quiz-container {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="quiz-container">
+        <h1>Welcome to the Orthopaedics Quiz!</h1>
+        <h3>Please Enter Your Name</h3>
+        <input id="nameInput" placeholder="Your name">
+        <br><br>
+        <button onclick="startQuiz()">Start Quiz</button>
+        <h2 id="welcomeMessage"></h2>
+    </div>
+    <br><hr><br>
+    <div class="quiz-container">
+        <h2>Instructions:</h2>
+        <p>
+            1. Choose the correct answer for each question.<br>
+            2. You will receive 1 point for each correct answer.<br>
+            3. Negative marks are not applicable.
+        </p>
+        <h2>Good Luck!</h2>
+    </div>
+    <br><hr><br>
+    <div class="quiz-container">
+        <h2>1. What is the most common type of fracture?</h2>
+        <button onclick="checkAnswer(event, 0)">Comminuted fracture</button><br><br>
+        <button onclick="checkAnswer(event, 0)">Greenstick fracture</button><br><br>
+        <button onclick="checkAnswer(event, 0)">Transverse fracture</button><br><br>
+        <button onclick="checkAnswer(event, 0)">Spiral fracture</button>
+        <br><br><hr>
+        <h2>2. What condition is characterized by inflammation of the joints?</h2>
+        <button onclick="checkAnswer(event, 1)">Osteoarthritis</button><br><br>
+        <button onclick="checkAnswer(event, 1)">Rheumatoid arthritis</button><br><br>
+        <button onclick="checkAnswer(event, 1)">Gout</button><br><br>
+        <button onclick="checkAnswer(event, 1)">All of the above</button>
+        <br><br><hr>
+        <h2>3. Which of the following bones is part of the human pelvis?</h2>
+        <button onclick="checkAnswer(event, 2)">Femur</button><br><br>
+        <button onclick="checkAnswer(event, 2)">Pelvic girdle</button><br><br>
+        <button onclick="checkAnswer(event, 2)">Scapula</button><br><br>
+        <button onclick="checkAnswer(event, 2)">Sternum</button>
+        <br><br><hr>
+        <h2>4. What is the medical term for a "broken bone"?</h2>
+        <button onclick="checkAnswer(event, 3)">Fracture</button><br><br>
+        <button onclick="checkAnswer(event, 3)">Dislocation</button><br><br>
+        <button onclick="checkAnswer(event, 3)">Sprain</button><br><br>
+        <button onclick="checkAnswer(event, 3)">Strain</button>
+        <br><br><hr>
+        <h2>5. What condition is commonly caused by repetitive motion and affects the elbow?</h2>
+        <button onclick="checkAnswer(event, 4)">Tennis elbow</button><br><br>
+        <button onclick="checkAnswer(event, 4)">Carpal tunnel syndrome</button><br><br>
+        <button onclick="checkAnswer(event, 4)">Bursitis</button><br><br>
+        <button onclick="checkAnswer(event, 4)">Osteoarthritis</button>
+        <br><br><hr>
+        <h2>6. What is the treatment for a dislocated shoulder?</h2>
+        <button onclick="checkAnswer(event, 5)">Surgical intervention</button><br><br>
+        <button onclick="checkAnswer(event, 5)">Physical therapy</button><br><br>
+        <button onclick="checkAnswer(event, 5)">Reduction (realigning the bone)</button><br><br>
+        <button onclick="checkAnswer(event, 5)">Rest and ice</button>
+        <br><br><hr>
+        <h2>7. What is the main cause of osteoporosis?</h2>
+        <button onclick="checkAnswer(event, 6)">Calcium deficiency</button><br><br>
+        <button onclick="checkAnswer(event, 6)">Vitamin D deficiency</button><br><br>
+        <button onclick="checkAnswer(event, 6)">Hormonal changes</button><br><br>
+        <button onclick="checkAnswer(event, 6)">All of the above</button>
+        <br><br><hr>
+        <h2>8. What is the function of the meniscus in the knee joint?</h2>
+        <button onclick="checkAnswer(event, 7)">Shock absorption</button><br><br>
+        <button onclick="checkAnswer(event, 7)">Movement of the femur</button><br><br>
+        <button onclick="checkAnswer(event, 7)">Support for ligaments</button><br><br>
+        <button onclick="checkAnswer(event, 7)">Bone protection</button>
+        <br><br><hr>
+        <h2>9. What is the most common symptom of a herniated disc?</h2>
+        <button onclick="checkAnswer(event, 8)">Numbness or tingling</button><br><br>
+        <button onclick="checkAnswer(event, 8)">Back pain</button><br><br>
+        <button onclick="checkAnswer(event, 8)">Leg pain</button><br><br>
+        <button onclick="checkAnswer(event, 8)">All of the above</button>
+        <br><br><hr>
+        <h2>10. What is the main function of ligaments in the human body?</h2>
+        <button onclick="checkAnswer(event, 9)">Connecting muscles to bones</button><br><br>
+        <button onclick="checkAnswer(event, 9)">Providing strength to bones</button><br><br>
+        <button onclick="checkAnswer(event, 9)">Connecting bones to other bones</button><br><br>
+        <button onclick="checkAnswer(event, 9)">Supporting blood flow</button>
+        <br><br><hr>
+    </div>
+    <br><hr><br>
+    <div class="quiz-container">
+        <h1 id="score">Score: 0</h1>
+    </div>
+    <script>
+        var nameInput = document.getElementById("nameInput");
+        var welcomeMessage = document.getElementById("welcomeMessage");
+        var scoreDisplay = document.getElementById("score");
+        var score = 0;
+
+        function startQuiz() {
+            welcomeMessage.textContent = "Good luck, " + nameInput.value + "!";
+        }
+
+        function checkAnswer(event, questionIndex) {
+            const correctAnswers = [
+                "Greenstick fracture",
+                "All of the above",
+                "Pelvic girdle",
+                "Fracture",
+                "Tennis elbow",
+                "Reduction (realigning the bone)",
+                "All of the above",
+                "Shock absorption",
+                "All of the above",
+                "Connecting bones to other bones"
+            ];
+
+            if (event.target.textContent === correctAnswers[questionIndex]) {
+                score++;
+            }
+
+            scoreDisplay.textContent = "Score: " + score;
+        }
+    </script>
+</body>
+</html>
