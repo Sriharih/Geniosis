@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pediatrics Quiz</title>
+    <style>
+        * {
+            background-color: #f2f2f2;
+            color: #333;
+        }
+        input {
+            color: #000;
+            background-color: #ddd;
+            border-radius: 5px;
+            padding: 5px;
+            margin: 5px;
+        }
+        input:hover {
+            background-color: #ccc;
+        }
+        button {
+            background-color: #5a5;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #4a4;
+        }
+        h1, h2, h3 {
+            margin: 10px;
+        }
+        .quiz-container {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="quiz-container">
+        <h1>Welcome to the Pediatrics Quiz!</h1>
+        <h3>Please Enter Your Name</h3>
+        <input id="nameInput" placeholder="Your name">
+        <br><br>
+        <button onclick="startQuiz()">Start Quiz</button>
+        <h2 id="welcomeMessage"></h2>
+    </div>
+    <br><hr><br>
+    <div class="quiz-container">
+        <h2>Instructions:</h2>
+        <p>
+            1. Choose the correct answer for each question.<br>
+            2. You will receive 1 point for each correct answer.<br>
+            3. Negative marks are not applicable.
+        </p>
+        <h2>Good Luck!</h2>
+    </div>
+    <br><hr><br>
+    <div class="quiz-container">
+        <h2>1. What is the most common cause of pneumonia in children?</h2>
+        <button onclick="checkAnswer(event, 0)">Streptococcus pneumoniae</button><br><br>
+        <button onclick="checkAnswer(event, 0)">Haemophilus influenzae</button><br><br>
+        <button onclick="checkAnswer(event, 0)">Respiratory syncytial virus (RSV)</button><br><br>
+        <button onclick="checkAnswer(event, 0)">Mycoplasma pneumoniae</button>
+        <br><br><hr>
+        <h2>2. What is the recommended age for a child to receive their first dose of the MMR vaccine?</h2>
+        <button onclick="checkAnswer(event, 1)">6 months</button><br><br>
+        <button onclick="checkAnswer(event, 1)">12 months</button><br><br>
+        <button onclick="checkAnswer(event, 1)">18 months</button><br><br>
+        <button onclick="checkAnswer(event, 1)">2 years</button>
+        <br><br><hr>
+        <h2>3. Which of the following is a characteristic sign of a child's asthma attack?</h2>
+        <button onclick="checkAnswer(event, 2)">Coughing without wheezing</button><br><br>
+        <button onclick="checkAnswer(event, 2)">Wheezing and shortness of breath</button><br><br>
+        <button onclick="checkAnswer(event, 2)">Fever and sore throat</button><br><br>
+        <button onclick="checkAnswer(event, 2)">Vomiting and diarrhea</button>
+        <br><br><hr>
+        <h2>4. What is the most common cause of neonatal jaundice?</h2>
+        <button onclick="checkAnswer(event, 3)">Hemolysis</button><br><br>
+        <button onclick="checkAnswer(event, 3)">Infection</button><br><br>
+        <button onclick="checkAnswer(event, 3)">Prematurity</button><br><br>
+        <button onclick="checkAnswer(event, 3)">Breastfeeding</button>
+        <br><br><hr>
+        <h2>5. At what age do infants typically begin to crawl?</h2>
+        <button onclick="checkAnswer(event, 4)">4-5 months</button><br><br>
+        <button onclick="checkAnswer(event, 4)">6-7 months</button><br><br>
+        <button onclick="checkAnswer(event, 4)">8-9 months</button><br><br>
+        <button onclick="checkAnswer(event, 4)">10-12 months</button>
+        <br><br><hr>
+        <h2>6. Which condition is characterized by a high fever, rash, and swollen glands in children?</h2>
+        <button onclick="checkAnswer(event, 5)">Measles</button><br><br>
+        <button onclick="checkAnswer(event, 5)">Rubella</button><br><br>
+        <button onclick="checkAnswer(event, 5)">Kawasaki disease</button><br><br>
+        <button onclick="checkAnswer(event, 5)">Chickenpox</button>
+        <br><br><hr>
+        <h2>7. What is the most common birth defect in the United States?</h2>
+        <button onclick="checkAnswer(event, 6)">Cleft lip and palate</button><br><br>
+        <button onclick="checkAnswer(event, 6)">Down syndrome</button><br><br>
+        <button onclick="checkAnswer(event, 6)">Spina bifida</button><br><br>
+        <button onclick="checkAnswer(event, 6)">Congenital heart defects</button>
+        <br><br><hr>
+        <h2>8. What is the primary symptom of attention-deficit hyperactivity disorder (ADHD) in children?</h2>
+        <button onclick="checkAnswer(event, 7)">Hyperactivity and impulsivity</button><br><br>
+        <button onclick="checkAnswer(event, 7)">Inattention</button><br><br>
+        <button onclick="checkAnswer(event, 7)">Aggression</button><br><br>
+        <button onclick="checkAnswer(event, 7)">Sleep disturbances</button>
+        <br><br><hr>
+        <h2>9. What is the first sign of teething in infants?</h2>
+        <button onclick="checkAnswer(event, 8)">Excessive drooling</button><br><br>
+        <button onclick="checkAnswer(event, 8)">Loss of appetite</button><br><br>
+        <button onclick="checkAnswer(event, 8)">Red cheeks</button><br><br>
+        <button onclick="checkAnswer(event, 8)">Coughing</button>
+        <br><br><hr>
+        <h2>10. What is the typical treatment for a child with a mild case of croup?</h2>
+        <button onclick="checkAnswer(event, 9)">Antibiotics</button><br><br>
+        <button onclick="checkAnswer(event, 9)">Steroids</button><br><br>
+        <button onclick="checkAnswer(event, 9)">Inhaled nebulizers</button><br><br>
+        <button onclick="checkAnswer(event, 9)">Humidified air</button>
+        <br><br><hr>
+    </div>
+    <br><hr><br>
+    <div class="quiz-container">
+        <h1 id="score">Score: 0</h1>
+    </div>
+    <script>
+        var nameInput = document.getElementById("nameInput");
+        var welcomeMessage = document.getElementById("welcomeMessage");
+        var scoreDisplay = document.getElementById("score");
+        var score = 0;
+
+        function startQuiz() {
+            welcomeMessage.textContent = "Good luck, " + nameInput.value + "!";
+        }
+
+        function checkAnswer(event, questionIndex) {
+            const correctAnswers = [
+                "Respiratory syncytial virus (RSV)",
+                "12 months",
+                "Wheezing and shortness of breath",
+                "Hemolysis",
+                "6-7 months",
+                "Kawasaki disease",
+                "Cleft lip and palate",
+                "Hyperactivity and impulsivity",
+                "Excessive drooling",
+                "Humidified air"
+            ];
+
+            if (event.target.textContent === correctAnswers[questionIndex]) {
+                score++;
+            }
+
+            scoreDisplay.textContent = "Score: " + score;
+        }
+    </script>
+</body>
+</html>
