@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cardiology Quiz</title>
+    <style>
+        * {
+            background-color: rgb(5, 4, 4);
+            color: rgb(240, 148, 148);
+        }
+        input {
+            color: aliceblue;
+            background-color: rgb(63, 46, 78);
+            border-radius: 60px;
+        }
+        input:hover {
+            background-color: aquamarine;
+        }
+        button {
+            background-color: rgb(29, 194, 103);
+            color: rgb(17, 10, 1);
+            border-radius: 60px;
+        }
+        button:hover {
+            background-color: aquamarine;
+        }
+    </style>
+</head>
+<body>
+    <center>
+    <div>
+        <h1>WELCOME TO THE CARDIOLOGY QUIZ!</h1>
+        <h3>PLEASE ENTER YOUR NAME</h3>
+        <input id="inpt">
+        <br><br>
+        <button onclick="start()" type="submit">SUBMIT</button>
+        <h2 id="con"></h2>
+    </div>
+    <br><hr><br>
+    <div>
+        <h2>BEFORE STARTING, READ THIS:</h2>
+        <p>
+            Rule 1: You must choose a single option for a question only once.<br>
+            Rule 2: There are negative marks for wrong choices.
+        </p>
+        <h2>NOW GO AND ROCK!</h2>
+    </div>
+    <br><hr><br>
+    <div>
+        <h2>1. What is the main function of the heart?</h2>
+        <button onclick="checkAnswer(event)">To pump blood throughout the body</button><br><br>
+        <button onclick="checkAnswer(event)">To digest food</button><br><br>
+        <button onclick="checkAnswer(event)">To filter waste from the blood</button><br><br>
+        <button onclick="checkAnswer(event)">To control body temperature</button>
+        <br><br><hr>
+        <h2>2. What is the medical term for a heart attack?</h2>
+        <button onclick="checkAnswer(event)">Cerebrovascular accident</button><br><br>
+        <button onclick="checkAnswer(event)">Myocardial infarction</button><br><br>
+        <button onclick="checkAnswer(event)">Aneurysm</button><br><br>
+        <button onclick="checkAnswer(event)">Arrhythmia</button>
+        <br><br><hr>
+        <h2>3. Which blood vessels carry blood away from the heart?</h2>
+        <button onclick="checkAnswer(event)">Veins</button><br><br>
+        <button onclick="checkAnswer(event)">Arteries</button><br><br>
+        <button onclick="checkAnswer(event)">Capillaries</button><br><br>
+        <button onclick="checkAnswer(event)">Venules</button>
+        <br><br><hr>
+        <h2>4. What is the term for high blood pressure?</h2>
+        <button onclick="checkAnswer(event)">Hypotension</button><br><br>
+        <button onclick="checkAnswer(event)">Hypertension</button><br><br>
+        <button onclick="checkAnswer(event)">Hyperglycemia</button><br><br>
+        <button onclick="checkAnswer(event)">Hypoglycemia</button>
+        <br><br><hr>
+        <h2>5. Which part of the heart receives oxygen-rich blood from the lungs?</h2>
+        <button onclick="checkAnswer(event)">Right atrium</button><br><br>
+        <button onclick="checkAnswer(event)">Left atrium</button><br><br>
+        <button onclick="checkAnswer(event)">Right ventricle</button><br><br>
+        <button onclick="checkAnswer(event)">Left ventricle</button>
+        <br><br><hr>
+        <h2>6. What is the function of red blood cells?</h2>
+        <button onclick="checkAnswer(event)">To fight infections</button><br><br>
+        <button onclick="checkAnswer(event)">To carry oxygen</button><br><br>
+        <button onclick="checkAnswer(event)">To clot blood</button><br><br>
+        <button onclick="checkAnswer(event)">To carry carbon dioxide</button>
+        <br><br><hr>
+        <h2>7. What is the largest artery in the body?</h2>
+        <button onclick="checkAnswer(event)">Coronary artery</button><br><br>
+        <button onclick="checkAnswer(event)">Pulmonary artery</button><br><br>
+        <button onclick="checkAnswer(event)">Aorta</button><br><br>
+        <button onclick="checkAnswer(event)">Carotid artery</button>
+        <br><br><hr>
+        <h2>8. Which heart valve prevents blood from flowing back into the left atrium from the left ventricle?</h2>
+        <button onclick="checkAnswer(event)">Tricuspid valve</button><br><br>
+        <button onclick="checkAnswer(event)">Pulmonary valve</button><br><br>
+        <button onclick="checkAnswer(event)">Mitral valve</button><br><br>
+        <button onclick="checkAnswer(event)">Aortic valve</button>
+        <br><br><hr>
+        <h2>9. What is the sinoatrial (SA) node commonly known as?</h2>
+        <button onclick="checkAnswer(event)">The heart's pacemaker</button><br><br>
+        <button onclick="checkAnswer(event)">The heart's regulator</button><br><br>
+        <button onclick="checkAnswer(event)">The heart's conductor</button><br><br>
+        <button onclick="checkAnswer(event)">The heart's stabilizer</button>
+        <br><br><hr>
+        <h2>10. What condition is characterized by the narrowing of the coronary arteries?</h2>
+        <button onclick="checkAnswer(event)">Atherosclerosis</button><br><br>
+        <button onclick="checkAnswer(event)">Myocarditis</button><br><br>
+        <button onclick="checkAnswer(event)">Endocarditis</button><br><br>
+        <button onclick="checkAnswer(event)">Pericarditis</button>
+        <br><br><hr>
+    </div>
+    <br><hr><br>
+    <div>
+        <h1 id="score">Score:</h1>
+    </div>
+    </center>
+    <script>
+        var ip = document.getElementById("inpt");
+        var content = document.getElementById("con");
+        var score = document.getElementById("score");
+
+        function start() {
+            content.textContent = "Response noted " + ip.value;
+        }
+
+        let a = 0;
+        function checkAnswer(event) {
+            const correctAnswers = [
+                "To pump blood throughout the body",
+                "Myocardial infarction",
+                "Arteries",
+                "Hypertension",
+                "Left atrium",
+                "To carry oxygen",
+                "Aorta",
+                "Mitral valve",
+                "The heart's pacemaker",
+                "Atherosclerosis"
+            ];
+
+            if (correctAnswers.includes(event.target.textContent)) {
+                a++;
+            }
+
+            score.textContent = "Score: " + a;
+        }
+    </script>
+</body>
+</html>
