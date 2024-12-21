@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QUIZ</title>
+    <style>
+        *{
+            background-color: rgb(5, 4, 4);
+            color: rgb(240, 148, 148);
+        }
+        input{
+            color: BLACK;
+            background-color: rgb(63, 46, 78);
+            border-radius: 60px ;
+        }
+        input:hover{
+            background-color: aquamarine;
+        }
+        button{
+            background-color: rgb(29, 194, 103);
+            color: rgb(17, 10, 1);
+            border-radius: 60px ;
+        }
+        button:hover{
+            background-color: aquamarine;
+        }
+    </style>
+</head>
+<body>
+    <center>
+    <div>
+        <h1>WELCOME THERE!</h1>
+        <h3>PLEASE ENTER YOUR NAME </h3>
+        <input id="inpt">
+        <br>
+        <br>
+        <button onclick="start()" type="submit">SUBMIT</button>
+        <h2 id="con"></h2>
+    </div>
+    <br>
+    <hr>
+    <br>
+    <div>
+        <h2>BEFORE STARTED READ THIS</h2>
+        <p>
+            rule 1: you must have choose single option for a question only once <br> rule 2: there is negative marks for the wrong choice<br>
+        </p>
+        <h2>NOW GO AND ROCK!</h2>
+    </div>
+    
+    <br>
+    <hr>
+    <br>
+    <div>
+        <h2>1. What is JavaScript?</h2>
+        <button onclick="kanaku(event)">A server-side language</button> <br><br><button onclick="kanaku(event)">A client-side language</button><br><br>
+        <button onclick="kanaku(event)">A database language</button> <br><br><button onclick="kanaku(event)">A markup language</button>
+        <br>
+        <br>
+        <hr>
+        <h2>2. What is the purpose of the var keyword in JavaScript?</h2>
+        <button onclick="kanaku(event)">To declare a constant</button> <br><br><button onclick="kanaku(event)">To declare a variable</button><br><br>
+        <button onclick="kanaku(event)">To declare a function</button> <br><br><button onclick="kanaku(event)">To declare an object</button>
+        <br>
+        <br>
+        <hr>
+        <h2>3. What is the difference between null and undefined in JavaScript?</h2>
+        <button onclick="kanaku(event)">null represents a non-existent value, while undefined represents an uninitialized variable</button> <br><br><button onclick="kanaku(event)">null represents an uninitialized variable, while undefined represents a non-existent value</button><br><br>
+        <button onclick="kanaku(event)">null and undefined are interchangeable</button> <br><br><button onclick="kanaku(event)">null and undefined are not related</button>
+        <br>
+        <br>
+        <hr>
+        <h2>4.What is the purpose of the this keyword in JavaScript?</h2>
+        <button onclick="kanaku(event)">To refer to the global object</button> <br><br><button onclick="kanaku(event)">To refer to the parent object</button><br><br>
+        <button onclick="kanaku(event)">To refer to the current object</button> <br><br><button onclick="kanaku(event)">To refer to the child object</button>
+        <br>
+        <br>
+        <hr>
+        <h2>5. What is a JavaScript closure?</h2>
+        <button onclick="kanaku(event)">A function that returns another function</button> <br><br><button onclick="kanaku(event)">A function that takes another function as an argument</button><br><br>
+        <button onclick="kanaku(event)">A function that is defined inside another function</button> <br><br><button onclick="kanaku(event)">A function that is defined outside of any other function</button>
+        <br>
+        <br>
+        <hr>
+        <h2>6. What is JavaScript inheritance?</h2>
+        <button onclick="kanaku(event)">To define a new object</button> <br><br><button onclick="kanaku(event)">To define a new function</button><br><br>
+        <button onclick="kanaku(event)">To inherit properties and methods from another object</button> <br><br><button onclick="kanaku(event)">To create a new instance of an object</button>
+        <br>
+        <br>
+        <hr><h2>7.What is JavaScript inheritance?</h2>
+        <button onclick="kanaku(event)">The process of creating a new object that inherits properties and methods from another object</button> <br><br><button onclick="kanaku(event)">The process of creating a new function that inherits properties and methods from another function</button><br><br>
+        <button onclick="kanaku(event)">The process of creating a new array that inherits properties and methods from another array</button> <br><br><button onclick="kanaku(event)">The process of creating a new string that inherits properties and methods from another string</button>
+        <br>
+        <br>
+        <hr>
+        <h2>8. What is the purpose of the bind() method in JavaScript?</h2>
+        <button onclick="kanaku(event)">To bind a function to a specific context</button> <br><br><button onclick="kanaku(event)">To bind a function to a specific argument</button><br><br>
+        <button onclick="kanaku(event)">To bind a function to a specific return value</button> <br><br><button onclick="kanaku(event)">To bind a function to a specific exception</button>
+        <br>
+        <br>
+        <hr><h2>9. What is the difference between == and === in JavaScript?</h2>
+        <button onclick="kanaku(event)">== checks for value equality, while === checks for reference equality</button> <br><br><button onclick="kanaku(event)">== checks for reference equality, while === checks for value equality</button><br><br>
+        <button onclick="kanaku(event)">== and === are interchangeable</button> <br><br><button onclick="kanaku(event)">== and === are not related</button>
+        <br>
+        <br>
+        <hr>
+        <h2>10. What is the purpose of the JSON object in JavaScript?</h2>
+        <button onclick="kanaku(event)">To parse JSON data</button> <br><br><button onclick="kanaku(event)">To stringify JSON data</button><br><br>
+        <button onclick="kanaku(event)">To validate JSON data</button> <br><br><button onclick="kanaku(event)">To all of the above</button>
+        <br>
+        <br>
+        <hr>
+    </div>
+    <br>
+    <hr>
+    <br>
+    <div>
+        <h1 id="score">Score:</h1>
+    </div>
+</center>
+    <script>
+        var ip=document.getElementById("inpt");
+        var content=document.getElementById("con");
+        var score=document.getElementById("score");
+        //var ans=document.getElementById("true");
+        
+        
+        function start()
+        {
+            content.textContent="Response noted "+ip.value;
+           // console.log(name.textContent);
+        }
+        let a=0;
+        var q1;
+        function kanaku(event)
+        {
+           if(event.target.textContent=="A client-side language" )
+           {
+            a++;
+            console.log(a)
+           }//
+           if(event.target.textContent=="To declare a variable" )
+           {
+            a++;
+           }
+           if(event.target.textContent=="null represents a non-existent value, while undefined represents an uninitialized variable" )
+           {
+            a++;
+           }
+           if(event.target.textContent=="To refer to the current object")
+           {
+            a++;
+           }
+           if(event.target.textContent=="A function that is defined inside another function")
+           {
+            a++;
+           }
+           if(event.target.textContent=="To inherit properties and methods from another object")
+           {
+            a++;
+           }
+           if(event.target.textContent=="The process of creating a new object that inherits properties and methods from another object")
+           {
+            a++;
+           }
+           if(event.target.textContent=="To bind a function to a specific context")
+           {
+            a++;
+           }
+           if(event.target.textContent=="== checks for value equality, while === checks for reference equality")
+           {
+            a++;
+           }
+           if(event.target.textContent=="To all of the above")
+           {
+            a++;
+           }
+           
+           score.textContent="Score:"+a;
+        }
+    </script>
+</body>
+</html>
