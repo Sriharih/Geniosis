@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>English Quiz</title>
+    <style>
+        * {
+            background-color: rgb(5, 4, 4);
+            color: rgb(240, 148, 148);
+        }
+        input {
+            color: black;
+            background-color: rgb(63, 46, 78);
+            border-radius: 60px;
+        }
+        input:hover {
+            background-color: aquamarine;
+        }
+        button {
+            background-color: rgb(29, 194, 103);
+            color: rgb(17, 10, 1);
+            border-radius: 60px;
+        }
+        button:hover {
+            background-color: aquamarine;
+        }
+    </style>
+</head>
+<body>
+    <center>
+        <div>
+            <h1>WELCOME THERE!</h1>
+            <h3>PLEASE ENTER YOUR NAME</h3>
+            <input id="inpt">
+            <br><br>
+            <button onclick="start()" type="submit">SUBMIT</button>
+            <h2 id="con"></h2>
+        </div>
+        <br>
+        <hr>
+        <br>
+        <div>
+            <h2>BEFORE STARTING READ THIS</h2>
+            <p>
+                Rule 1: You must choose a single option for a question only once.<br>
+                Rule 2: There are negative marks for the wrong choice.<br>
+            </p>
+            <h2>NOW GO AND ROCK!</h2>
+        </div>
+        <br>
+        <hr>
+        <br>
+        <div>
+            <h2>1. Which word is a synonym for "happy"?</h2>
+            <button onclick="checkAnswer(event)">Sad</button><br><br>
+            <button onclick="checkAnswer(event)">Joyful</button><br><br>
+            <button onclick="checkAnswer(event)">Angry</button><br><br>
+            <button onclick="checkAnswer(event)">Tired</button>
+            <br><br><hr>
+            <h2>2. Which sentence is correct?</h2>
+            <button onclick="checkAnswer(event)">He go to the park.</button><br><br>
+            <button onclick="checkAnswer(event)">He goes to the park.</button><br><br>
+            <button onclick="checkAnswer(event)">He going to the park.</button><br><br>
+            <button onclick="checkAnswer(event)">He gone to the park.</button>
+            <br><br><hr>
+            <h2>3. What is the plural of "child"?</h2>
+            <button onclick="checkAnswer(event)">Childs</button><br><br>
+            <button onclick="checkAnswer(event)">Children</button><br><br>
+            <button onclick="checkAnswer(event)">Childes</button><br><br>
+            <button onclick="checkAnswer(event)">Childers</button>
+            <br><br><hr>
+            <h2>4. What is the opposite of "hot"?</h2>
+            <button onclick="checkAnswer(event)">Cold</button><br><br>
+            <button onclick="checkAnswer(event)">Warm</button><br><br>
+            <button onclick="checkAnswer(event)">Cool</button><br><br>
+            <button onclick="checkAnswer(event)">Freezing</button>
+            <br><br><hr>
+            <h2>5. Which is the correct spelling?</h2>
+            <button onclick="checkAnswer(event)">Receeve</button><br><br>
+            <button onclick="checkAnswer(event)">Recieve</button><br><br>
+            <button onclick="checkAnswer(event)">Receive</button><br><br>
+            <button onclick="checkAnswer(event)">Reciive</button>
+            <br><br><hr>
+            <h2>6. Choose the correct form of the verb: "She ___ a book every evening."</h2>
+            <button onclick="checkAnswer(event)">Read</button><br><br>
+            <button onclick="checkAnswer(event)">Reads</button><br><br>
+            <button onclick="checkAnswer(event)">Reading</button><br><br>
+            <button onclick="checkAnswer(event)">Has read</button>
+            <br><br><hr>
+            <h2>7. What is the correct past tense of "go"?</h2>
+            <button onclick="checkAnswer(event)">Gone</button><br><br>
+            <button onclick="checkAnswer(event)">Goes</button><br><br>
+            <button onclick="checkAnswer(event)">Went</button><br><br>
+            <button onclick="checkAnswer(event)">Going</button>
+            <br><br><hr>
+            <h2>8. Which word is an adjective?</h2>
+            <button onclick="checkAnswer(event)">Quickly</button><br><br>
+            <button onclick="checkAnswer(event)">Quick</button><br><br>
+            <button onclick="checkAnswer(event)">Quicker</button><br><br>
+            <button onclick="checkAnswer(event)">Quickness</button>
+            <br><br><hr>
+            <h2>9. What is the superlative form of "good"?</h2>
+            <button onclick="checkAnswer(event)">Better</button><br><br>
+            <button onclick="checkAnswer(event)">Best</button><br><br>
+            <button onclick="checkAnswer(event)">More good</button><br><br>
+            <button onclick="checkAnswer(event)">Goodest</button>
+            <br><br><hr>
+            <h2>10. What is a noun in this sentence: "The cat chased the mouse"?</h2>
+            <button onclick="checkAnswer(event)">Chased</button><br><br>
+            <button onclick="checkAnswer(event)">Mouse</button><br><br>
+            <button onclick="checkAnswer(event)">The</button><br><br>
+            <button onclick="checkAnswer(event)">Cat</button>
+            <br><br>
+        </div>
+        <br><hr><br>
+        <div>
+            <h1 id="score">Score:</h1>
+        </div>
+    </center>
+    <script>
+        var ip = document.getElementById("inpt");
+        var content = document.getElementById("con");
+        var score = document.getElementById("score");
+        let a = 0;
+
+        function start() {
+            content.textContent = "Response noted, " + ip.value;
+        }
+
+        function checkAnswer(event) {
+            const answers = [
+                "Joyful", "He goes to the park.", "Children",
+                "Cold", "Receive", "Reads", 
+                "Went", "Quick", "Best", "Mouse"
+            ];
+            if (answers.includes(event.target.textContent)) {
+                a++;
+            }
+            score.textContent = "Score: " + a;
+        }
+    </script>
+</body>
+</html>
