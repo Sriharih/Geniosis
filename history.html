@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>History Quiz</title>
+    <style>
+        * {
+            background-color: rgb(5, 4, 4);
+            color: rgb(240, 148, 148);
+        }
+        input {
+            color: black;
+            background-color: rgb(63, 46, 78);
+            border-radius: 60px;
+        }
+        input:hover {
+            background-color: aquamarine;
+        }
+        button {
+            background-color: rgb(29, 194, 103);
+            color: rgb(17, 10, 1);
+            border-radius: 60px;
+        }
+        button:hover {
+            background-color: aquamarine;
+        }
+    </style>
+</head>
+<body>
+    <center>
+        <div>
+            <h1>WELCOME THERE!</h1>
+            <h3>PLEASE ENTER YOUR NAME</h3>
+            <input id="inpt">
+            <br><br>
+            <button onclick="start()" type="submit">SUBMIT</button>
+            <h2 id="con"></h2>
+        </div>
+        <br>
+        <hr>
+        <br>
+        <div>
+            <h2>BEFORE STARTING READ THIS</h2>
+            <p>
+                Rule 1: You must choose a single option for a question only once.<br>
+                Rule 2: There are negative marks for the wrong choice.<br>
+            </p>
+            <h2>NOW GO AND ROCK!</h2>
+        </div>
+        <br>
+        <hr>
+        <br>
+        <div>
+            <h2>1. Who was the first President of the United States?</h2>
+            <button onclick="checkAnswer(event)">George Washington</button><br><br>
+            <button onclick="checkAnswer(event)">Abraham Lincoln</button><br><br>
+            <button onclick="checkAnswer(event)">Thomas Jefferson</button><br><br>
+            <button onclick="checkAnswer(event)">John Adams</button>
+            <br><br><hr>
+            <h2>2. When did World War II end?</h2>
+            <button onclick="checkAnswer(event)">1943</button><br><br>
+            <button onclick="checkAnswer(event)">1945</button><br><br>
+            <button onclick="checkAnswer(event)">1947</button><br><br>
+            <button onclick="checkAnswer(event)">1950</button>
+            <br><br><hr>
+            <h2>3. Who was known as the Iron Lady?</h2>
+            <button onclick="checkAnswer(event)">Margaret Thatcher</button><br><br>
+            <button onclick="checkAnswer(event)">Angela Merkel</button><br><br>
+            <button onclick="checkAnswer(event)">Indira Gandhi</button><br><br>
+            <button onclick="checkAnswer(event)">Golda Meir</button>
+            <br><br><hr>
+            <h2>4. What year did the American Civil War start?</h2>
+            <button onclick="checkAnswer(event)">1861</button><br><br>
+            <button onclick="checkAnswer(event)">1865</button><br><br>
+            <button onclick="checkAnswer(event)">1870</button><br><br>
+            <button onclick="checkAnswer(event)">1855</button>
+            <br><br><hr>
+            <h2>5. Who discovered America?</h2>
+            <button onclick="checkAnswer(event)">Christopher Columbus</button><br><br>
+            <button onclick="checkAnswer(event)">Vasco da Gama</button><br><br>
+            <button onclick="checkAnswer(event)">Ferdinand Magellan</button><br><br>
+            <button onclick="checkAnswer(event)">James Cook</button>
+            <br><br><hr>
+            <h2>6. Which empire was ruled by Genghis Khan?</h2>
+            <button onclick="checkAnswer(event)">Ottoman Empire</button><br><br>
+            <button onclick="checkAnswer(event)">Mongol Empire</button><br><br>
+            <button onclick="checkAnswer(event)">Roman Empire</button><br><br>
+            <button onclick="checkAnswer(event)">British Empire</button>
+            <br><br><hr>
+            <h2>7. When was the Declaration of Independence signed?</h2>
+            <button onclick="checkAnswer(event)">1776</button><br><br>
+            <button onclick="checkAnswer(event)">1781</button><br><br>
+            <button onclick="checkAnswer(event)">1765</button><br><br>
+            <button onclick="checkAnswer(event)">1791</button>
+            <br><br><hr>
+            <h2>8. Who built the Taj Mahal?</h2>
+            <button onclick="checkAnswer(event)">Shah Jahan</button><br><br>
+            <button onclick="checkAnswer(event)">Akbar</button><br><br>
+            <button onclick="checkAnswer(event)">Jahangir</button><br><br>
+            <button onclick="checkAnswer(event)">Babur</button>
+            <br><br><hr>
+            <h2>9. What was the name of the ship that brought the Pilgrims to America?</h2>
+            <button onclick="checkAnswer(event)">Mayflower</button><br><br>
+            <button onclick="checkAnswer(event)">Santa Maria</button><br><br>
+            <button onclick="checkAnswer(event)">Endeavour</button><br><br>
+            <button onclick="checkAnswer(event)">Victoria</button>
+            <br><br><hr>
+            <h2>10. Who was the first Emperor of Rome?</h2>
+            <button onclick="checkAnswer(event)">Augustus</button><br><br>
+            <button onclick="checkAnswer(event)">Julius Caesar</button><br><br>
+            <button onclick="checkAnswer(event)">Nero</button><br><br>
+            <button onclick="checkAnswer(event)">Caligula</button>
+            <br><br>
+        </div>
+        <br><hr><br>
+        <div>
+            <h1 id="score">Score:</h1>
+        </div>
+    </center>
+    <script>
+        var ip = document.getElementById("inpt");
+        var content = document.getElementById("con");
+        var score = document.getElementById("score");
+        let a = 0;
+
+        function start() {
+            content.textContent = "Response noted, " + ip.value;
+        }
+
+        function checkAnswer(event) {
+            const answers = [
+                "George Washington", "1945", "Margaret Thatcher", 
+                "1861", "Christopher Columbus", "Mongol Empire", 
+                "1776", "Shah Jahan", "Mayflower", "Augustus"
+            ];
+            if (answers.includes(event.target.textContent)) {
+                a++;
+            }
+            score.textContent = "Score: " + a;
+        }
+    </script>
+</body>
+</html>
