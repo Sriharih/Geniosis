@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math Quiz</title>
+    <style>
+        * {
+            background-color: rgb(5, 4, 4);
+            color: rgb(240, 148, 148);
+        }
+        input {
+            color: black;
+            background-color: rgb(63, 46, 78);
+            border-radius: 60px;
+        }
+        input:hover {
+            background-color: aquamarine;
+        }
+        button {
+            background-color: rgb(29, 194, 103);
+            color: rgb(17, 10, 1);
+            border-radius: 60px;
+        }
+        button:hover {
+            background-color: aquamarine;
+        }
+    </style>
+</head>
+<body>
+    <center>
+        <div>
+            <h1>WELCOME THERE!</h1>
+            <h3>PLEASE ENTER YOUR NAME</h3>
+            <input id="inpt">
+            <br><br>
+            <button onclick="start()" type="submit">SUBMIT</button>
+            <h2 id="con"></h2>
+        </div>
+        <br>
+        <hr>
+        <br>
+        <div>
+            <h2>BEFORE STARTING READ THIS</h2>
+            <p>
+                Rule 1: You must choose a single option for a question only once.<br>
+                Rule 2: There are negative marks for the wrong choice.<br>
+            </p>
+            <h2>NOW GO AND ROCK!</h2>
+        </div>
+        <br>
+        <hr>
+        <br>
+        <div>
+            <h2>1. What is 7 + 8?</h2>
+            <button onclick="checkAnswer(event)">15</button><br><br>
+            <button onclick="checkAnswer(event)">14</button><br><br>
+            <button onclick="checkAnswer(event)">13</button><br><br>
+            <button onclick="checkAnswer(event)">16</button>
+            <br><br><hr>
+            <h2>2. What is the square root of 49?</h2>
+            <button onclick="checkAnswer(event)">5</button><br><br>
+            <button onclick="checkAnswer(event)">7</button><br><br>
+            <button onclick="checkAnswer(event)">9</button><br><br>
+            <button onclick="checkAnswer(event)">6</button>
+            <br><br><hr>
+            <h2>3. What is 12 x 11?</h2>
+            <button onclick="checkAnswer(event)">121</button><br><br>
+            <button onclick="checkAnswer(event)">132</button><br><br>
+            <button onclick="checkAnswer(event)">144</button><br><br>
+            <button onclick="checkAnswer(event)">110</button>
+            <br><br><hr>
+            <h2>4. What is 100 divided by 4?</h2>
+            <button onclick="checkAnswer(event)">20</button><br><br>
+            <button onclick="checkAnswer(event)">25</button><br><br>
+            <button onclick="checkAnswer(event)">30</button><br><br>
+            <button onclick="checkAnswer(event)">40</button>
+            <br><br><hr>
+            <h2>5. What is the value of π (pi) to 2 decimal places?</h2>
+            <button onclick="checkAnswer(event)">3.12</button><br><br>
+            <button onclick="checkAnswer(event)">3.14</button><br><br>
+            <button onclick="checkAnswer(event)">3.16</button><br><br>
+            <button onclick="checkAnswer(event)">3.10</button>
+            <br><br><hr>
+            <h2>6. Solve: 6² - 4 x 3</h2>
+            <button onclick="checkAnswer(event)">24</button><br><br>
+            <button onclick="checkAnswer(event)">30</button><br><br>
+            <button onclick="checkAnswer(event)">18</button><br><br>
+            <button onclick="checkAnswer(event)">36</button>
+            <br><br><hr>
+            <h2>7. What is the cube of 3?</h2>
+            <button onclick="checkAnswer(event)">9</button><br><br>
+            <button onclick="checkAnswer(event)">27</button><br><br>
+            <button onclick="checkAnswer(event)">18</button><br><br>
+            <button onclick="checkAnswer(event)">30</button>
+            <br><br><hr>
+            <h2>8. What is 15% of 200?</h2>
+            <button onclick="checkAnswer(event)">15</button><br><br>
+            <button onclick="checkAnswer(event)">30</button><br><br>
+            <button onclick="checkAnswer(event)">20</button><br><br>
+            <button onclick="checkAnswer(event)">25</button>
+            <br><br><hr>
+            <h2>9. Solve: 9 x (5 - 3) + 2</h2>
+            <button onclick="checkAnswer(event)">20</button><br><br>
+            <button onclick="checkAnswer(event)">18</button><br><br>
+            <button onclick="checkAnswer(event)">19</button><br><br>
+            <button onclick="checkAnswer(event)">23</button>
+            <br><br><hr>
+            <h2>10. What is the perimeter of a square with a side length of 7?</h2>
+            <button onclick="checkAnswer(event)">28</button><br><br>
+            <button onclick="checkAnswer(event)">24</button><br><br>
+            <button onclick="checkAnswer(event)">35</button><br><br>
+            <button onclick="checkAnswer(event)">21</button>
+            <br><br>
+        </div>
+        <br><hr><br>
+        <div>
+            <h1 id="score">Score:</h1>
+        </div>
+    </center>
+    <script>
+        var ip = document.getElementById("inpt");
+        var content = document.getElementById("con");
+        var score = document.getElementById("score");
+        let a = 0;
+
+        function start() {
+            content.textContent = "Response noted, " + ip.value;
+        }
+
+        function checkAnswer(event) {
+            const answers = [
+                "15", "7", "132", 
+                "25", "3.14", "24", 
+                "27", "30", "20", "28"
+            ];
+            if (answers.includes(event.target.textContent)) {
+                a++;
+            }
+            score.textContent = "Score: " + a;
+        }
+    </script>
+</body>
+</html>
