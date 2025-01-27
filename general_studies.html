@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>General Studies Quiz</title>
+    <style>
+        * {
+            background-color: rgb(5, 4, 4);
+            color: rgb(240, 148, 148);
+        }
+        input {
+            color: black;
+            background-color: rgb(63, 46, 78);
+            border-radius: 60px;
+        }
+        input:hover {
+            background-color: aquamarine;
+        }
+        button {
+            background-color: rgb(29, 194, 103);
+            color: rgb(17, 10, 1);
+            border-radius: 60px;
+        }
+        button:hover {
+            background-color: aquamarine;
+        }
+    </style>
+</head>
+<body>
+    <center>
+        <div>
+            <h1>WELCOME THERE!</h1>
+            <h3>PLEASE ENTER YOUR NAME</h3>
+            <input id="inpt">
+            <br><br>
+            <button onclick="start()" type="submit">SUBMIT</button>
+            <h2 id="con"></h2>
+        </div>
+        <br>
+        <hr>
+        <br>
+        <div>
+            <h2>BEFORE STARTING READ THIS</h2>
+            <p>
+                Rule 1: You must choose a single option for a question only once.<br>
+                Rule 2: There are negative marks for the wrong choice.<br>
+            </p>
+            <h2>NOW GO AND ROCK!</h2>
+        </div>
+        <br>
+        <hr>
+        <br>
+        <div>
+            <h2>1. What is the capital of India?</h2>
+            <button onclick="checkAnswer(event)">Delhi</button><br><br>
+            <button onclick="checkAnswer(event)">Mumbai</button><br><br>
+            <button onclick="checkAnswer(event)">Kolkata</button><br><br>
+            <button onclick="checkAnswer(event)">Chennai</button>
+            <br><br><hr>
+            <h2>2. Who is known as the Father of the Indian Constitution?</h2>
+            <button onclick="checkAnswer(event)">Mahatma Gandhi</button><br><br>
+            <button onclick="checkAnswer(event)">B. R. Ambedkar</button><br><br>
+            <button onclick="checkAnswer(event)">Jawaharlal Nehru</button><br><br>
+            <button onclick="checkAnswer(event)">Subhash Chandra Bose</button>
+            <br><br><hr>
+            <h2>3. What is the largest planet in our solar system?</h2>
+            <button onclick="checkAnswer(event)">Earth</button><br><br>
+            <button onclick="checkAnswer(event)">Mars</button><br><br>
+            <button onclick="checkAnswer(event)">Jupiter</button><br><br>
+            <button onclick="checkAnswer(event)">Saturn</button>
+            <br><br><hr>
+            <h2>4. Who discovered gravity?</h2>
+            <button onclick="checkAnswer(event)">Albert Einstein</button><br><br>
+            <button onclick="checkAnswer(event)">Isaac Newton</button><br><br>
+            <button onclick="checkAnswer(event)">Galileo Galilei</button><br><br>
+            <button onclick="checkAnswer(event)">Marie Curie</button>
+            <br><br><hr>
+            <h2>5. What is the national animal of India?</h2>
+            <button onclick="checkAnswer(event)">Peacock</button><br><br>
+            <button onclick="checkAnswer(event)">Tiger</button><br><br>
+            <button onclick="checkAnswer(event)">Elephant</button><br><br>
+            <button onclick="checkAnswer(event)">Lion</button>
+            <br><br><hr>
+            <h2>6. What is the smallest continent in the world?</h2>
+            <button onclick="checkAnswer(event)">Europe</button><br><br>
+            <button onclick="checkAnswer(event)">Australia</button><br><br>
+            <button onclick="checkAnswer(event)">Antarctica</button><br><br>
+            <button onclick="checkAnswer(event)">South America</button>
+            <br><br><hr>
+            <h2>7. What is the chemical symbol for water?</h2>
+            <button onclick="checkAnswer(event)">O2</button><br><br>
+            <button onclick="checkAnswer(event)">H2O</button><br><br>
+            <button onclick="checkAnswer(event)">CO2</button><br><br>
+            <button onclick="checkAnswer(event)">NaCl</button>
+            <br><br><hr>
+            <h2>8. Who wrote the national anthem of India?</h2>
+            <button onclick="checkAnswer(event)">Rabindranath Tagore</button><br><br>
+            <button onclick="checkAnswer(event)">Bankim Chandra Chatterjee</button><br><br>
+            <button onclick="checkAnswer(event)">Sarojini Naidu</button><br><br>
+            <button onclick="checkAnswer(event)">Mahatma Gandhi</button>
+            <br><br><hr>
+            <h2>9. What is the full form of WHO?</h2>
+            <button onclick="checkAnswer(event)">World Human Organization</button><br><br>
+            <button onclick="checkAnswer(event)">World Health Organization</button><br><br>
+            <button onclick="checkAnswer(event)">World Heritage Organization</button><br><br>
+            <button onclick="checkAnswer(event)">World Help Organization</button>
+            <br><br><hr>
+            <h2>10. Who was the first woman Prime Minister of India?</h2>
+            <button onclick="checkAnswer(event)">Sonia Gandhi</button><br><br>
+            <button onclick="checkAnswer(event)">Indira Gandhi</button><br><br>
+            <button onclick="checkAnswer(event)">Pratibha Patil</button><br><br>
+            <button onclick="checkAnswer(event)">Sarojini Naidu</button>
+            <br><br>
+        </div>
+        <br><hr><br>
+        <div>
+            <h1 id="score">Score:</h1>
+        </div>
+    </center>
+    <script>
+        var ip = document.getElementById("inpt");
+        var content = document.getElementById("con");
+        var score = document.getElementById("score");
+        let a = 0;
+
+        function start() {
+            content.textContent = "Response noted, " + ip.value;
+        }
+
+        function checkAnswer(event) {
+            const answers = [
+                "Delhi", "B. R. Ambedkar", "Jupiter", 
+                "Isaac Newton", "Tiger", "Australia", 
+                "H2O", "Rabindranath Tagore", 
+                "World Health Organization", "Indira Gandhi"
+            ];
+            if (answers.includes(event.target.textContent)) {
+                a++;
+            }
+            score.textContent = "Score: " + a;
+        }
+    </script>
+</body>
+</html>
